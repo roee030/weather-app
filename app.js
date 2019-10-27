@@ -1,8 +1,7 @@
 var request = require('request');
 
-const url = "https://api.darksky.net/forecast/30d4fcb9f68c9cbdd5118de3bb0acad4/37.8267,-122.4233"
+const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoicm9lZTAzMCIsImEiOiJjazI5M2VleTUwMzQ4M29wMnV0cHk2dXFrIn0.DyIk-WcyXZF2LY_u37FR9w"
 
-request({url:url},(error, response) => {
-    const data = JSON.parse(response.body)
-    console.log(data)
+request({url:url , json:true },(error, response) => {
+    console.log(response.body.features[0].geometry.coordinates)
 })
