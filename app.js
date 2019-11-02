@@ -2,7 +2,7 @@ var request = require('request');
 var geocode = require('./utils/geocode')
 var forecast = require('./utils/forecast')
 
-forecast(337.8267,152.4233,(error,data)=>{
+forecast(34.780915,32.083148,(error,data)=>{
     console.log("Error",error)
     console.log("Data",data)
 })
