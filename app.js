@@ -4,8 +4,9 @@ var request = require('request');
 
 // request({url:url1 , json:true},(error, response) => {
 //      if(error) console.log("There is an Error")
-//      else if( response.bode.error) console.log("enable to reach the server")
-//     console.log(response.body)
+//      else if( response.bode.error) console.log("enable to reach the location")
+//      else
+//     console.log(response.body.daily.data[0].summary + 'Its currently ' + response.body.currently.temperature)
 // })
 
 
