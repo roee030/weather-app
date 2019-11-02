@@ -6,7 +6,7 @@ var geocode = require('./utils/geocode')
 //      if(error) console.log("There is an Error")
 //      else if( response.bode.error) console.log("enable to reach the location")
 //      else
-//     console.log(response.body.daily.data[0].summary + 'Its currently ' + response.body.currently.temperature)
+//     console.log(response.body.daily.data[0].summary + 'Its currently ' + response.body.currently.temperature + ' degree out. There is a '+response.body.currently.precipProbability + '% chance of rain.)
 // })
 
 
