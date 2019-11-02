@@ -8,15 +8,7 @@ var geocode = require('./utils/geocode')
 //      else
 //     console.log(response.body.daily.data[0].summary + 'Its currently ' + response.body.currently.temperature + ' degree out. There is a '+response.body.currently.precipProbability + '% chance of rain.)
 // })
-const forecast = (longitude, latitude) => {
-    const url = "https://api.darksky.net/forecast/30d4fcb9f68c9cbdd5118de3bb0acad4/"+latitude+","+longitude
-    request({url:url,json:true},(error,response) => {
-        if(error) console.log("There is an error connection")
-        else if( response.bode.error) console.log("enable to reach the location")
-        else console.log(response.body.daily.data[0].summary + 'Its currently ' + response.body.currently.temperature + ' degree out. There is a '+response.body.currently.precipProbability + '% chance of rain.)
 
-    })
-}
 
 
 geocode('Tel aviv',(error,data)=>{
