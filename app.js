@@ -1,17 +1,12 @@
 var request = require('request');
 var geocode = require('./utils/geocode')
-// const url1 = "https://api.darksky.net/forecast/30d4fcb9f68c9cbdd5118de3bb0acad4/37.8267,-122.4233"
+var forecast = require('./utils/forecast')
 
-// request({url:url1 , json:true},(error, response) => {
-//      if(error) console.log("There is an Error")
-//      else if( response.bode.error) console.log("enable to reach the location")
-//      else
-//     console.log(response.body.daily.data[0].summary + 'Its currently ' + response.body.currently.temperature + ' degree out. There is a '+response.body.currently.precipProbability + '% chance of rain.)
-// })
-
-
-
-geocode('Tel aviv',(error,data)=>{
+forecast(337.8267,152.4233,(error,data)=>{
     console.log("Error",error)
-    console.log("data",data)
+    console.log("Data",data)
 })
+// geocode('Tel aviv',(error,data)=>{
+//     console.log("Error",error)
+//     console.log("data",data)
+// })
