@@ -1,4 +1,6 @@
 var request = require('request')
+var degreeConvert = require('./fTOc')
+
 const forecast = (longitude, latitude,callback) => {
     const url = "https://api.darksky.net/forecast/30d4fcb9f68c9cbdd5118de3bb0acad4/"+latitude+","+longitude
     request({url:url,json:true},(error,response) => {
@@ -7,7 +9,7 @@ const forecast = (longitude, latitude,callback) => {
         } else if (response.body.error) {
             callback('Unable to find location', undefined)
         } else {
-            callback(undefined, response.body.daily.data[0].summary + ' It is currently ' + response.body.currently.temperature + ' degress out. There is a ' + response.body.currently.precipProbability + '% chance of rain.')
+            callback(undefined, response.body.daily.data[0].summary + ' It is currently ' + degreeConvert(response.body.currently.temperature) + ' degress out. There is a ' + response.body.currently.precipProbability + '% chance of rain.')
         }
     })
 }
