@@ -10,5 +10,8 @@ var request = require('request');
 const url2 = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoicm9lZTAzMCIsImEiOiJjazI5M2VleTUwMzQ4M29wMnV0cHk2dXFrIn0.DyIk-WcyXZF2LY_u37FR9w"
 
 request({url:url2 , json:true },(error, response) => {
-    console.log(response.body.features[0].geometry.coordinates)
+    console.log(response.body.features[0].center)
+    const latitude = response.body.features[0].center[1]
+    const longitude = response.body.features[0].center[0]
+    console.log(latitude,longitude)
 })
