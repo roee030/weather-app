@@ -1,9 +1,9 @@
 var path = require('path')
 var express = require('express')
 var app = express()
-
+var hbs = require('hbs')
 var publicDirectoryPath = path.join(__dirname,'../public')
-var viewsPath = path.join(__dirname, '../templates')
+var viewsPath = path.join(__dirname, '../templates/views')
 app.set('view engine', 'hbs')
 app.set('views',viewsPath)
 
