@@ -2,6 +2,9 @@ var path = require('path')
 var express = require('express')
 var app = express()
 var hbs = require('hbs')
+var geocode = require('../../utils/geocode')
+var forecast = require('../../utils/forecast')
+
 var publicDirectoryPath = path.join(__dirname,'../public')
 var viewsPath = path.join(__dirname, '../templates/views')
 var partialsPath = path.join(__dirname,'../templates/partials')
@@ -41,11 +44,23 @@ app.get('/weather', (req, res) => {
             error:"Please add an address"       
         })
     }
-    res.send({
-        forecast: 'It is snowing',
-        location: 'Philadelphia',
-        weather: req.query.address
-    })
+        var address = req.query.address
+        geocode(address,(error,{latitude,longitude,location}={})=>{
+            if(error)
+            {
+                res.send({
+                    error:"Please try to search again"
+                })
+            }
+            forecast(latitude,longitude,(error,forecastData)=>{
+                res.render('weather',{
+                    title: "Weather",
+                    forecast:forecastData,
+                    location:location,
+                    address: req.query.address
+                })
+            })
+        })
 })
 
 app.get('/product', (req,res)=>{
